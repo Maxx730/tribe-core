@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Document(collection = "tribes")
 public class Tribe {
@@ -54,5 +55,22 @@ public class Tribe {
 
     public ArrayList<Event> getEvents(){
         return this.events;
+    }
+
+    //Setters begin here.
+    public void setTitle(String title){
+        this.title = title;
+    }
+
+    public void setDescription(String desc){
+        this.description = desc;
+    }
+
+    public void setCreator(User user){
+        this.creator = user;
+    }
+
+    public void addMember(User member){
+        this.members.add(member);
     }
 }

@@ -16,13 +16,20 @@ public class User {
     private String firstname;
     private String lastname;
 
-    public User() {
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+
         //Set the names as default to no name.
         this.firstname = "No Name";
         this.lastname = "No Name";
     }
 
     //Getters start here.
+    public String getId(){
+        return this.id;
+    }
+
     public String getUsername(){
         return this.username;
     }
@@ -42,4 +49,17 @@ public class User {
     public String getLastname() {
         return this.lastname;
     }
+
+    //Setters start here.
+    public void setEmail(String email){
+        this.email = email;
+    }
+    public void setUsername(){}
+    public void setFirstname(String firstname){
+        this.firstname = firstname;
+    }
+    public void setLastname(String lastname){
+        this.lastname = lastname;
+    }
+
 }

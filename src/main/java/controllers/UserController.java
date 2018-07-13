@@ -65,17 +65,20 @@ public class UserController {
     public String LoginUser(@RequestBody User user){
         List<User> users = this.userRepo.findUserByUsername(user.getUsername());
         ObjectMapper m = new ObjectMapper();
-        Response r = new Response("SUCCESS","LOGIN SUCCEEDED");
+        Response r = new Response("NULL","NULL");
 
         if(users.size() == 1 && users.get(0).getPassword() == user.getPassword()){
             //User has successfully logged into the system.
-
+            r.setType("SUCCESS");
+            r.setMessage("LOGIN SUCCESS");
         }else{
             //User has failed to log into the system.
             r.setType("ERROR");
             r.setMessage("USERNAME OR PASSWORD INCORRECT");
         }
 
+        //Returns the user object as a JSON object if there are no errors
+        //when parsing the said object.
         try{
             return m.writeValueAsString(r);
         }catch(JsonProcessingException e){
@@ -90,9 +93,9 @@ public class UserController {
     }
 
     //Deletes a user from the database based on the ID in the url.
-    @DeleteMapping(value = "/delete/{name}")
-    public void DeleteUser(@PathVariable("name") String name){
-        this.userRepo.deleteUserByUsername(name);
+    @DeleteMapping(value = "/delete/{id}")
+    public void DeleteUser(@PathVariable("id") String id){
+        this.userRepo.deleteByUserId(id);
     }
 
     //Functions used for checking to make sure we do not get duplicate usernames

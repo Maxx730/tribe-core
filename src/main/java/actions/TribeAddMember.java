@@ -10,5 +10,5 @@ public class TribeAddMember {
     //We want to be able to add multiple users to a Tribe at least
     //for when the tribe is first created.
     public boolean multi = false;
-    public List<User> addedUsers[];
+    public List<String> addedUsers;
 }

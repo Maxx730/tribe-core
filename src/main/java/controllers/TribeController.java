@@ -48,6 +48,7 @@ public class TribeController {
         Tribe addedTo = tribeRepo.findTribeBy_Id(payload.tribe_id);
 
         if(payload.multi){
+            List<User> users = userRepo.findUserList(payload.addedUsers);
             return "Adding to Tribe: "+addedTo.getTitle();
         }else{
             User newUser = userRepo.findMemberByStringId(payload.user_id);

@@ -16,18 +16,10 @@ public class User {
     private String firstname;
     private String lastname;
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-
+    public User() {
         //Set the names as default to no name.
         this.firstname = "No Name";
         this.lastname = "No Name";
-    }
-
-    //Getters start here.
-    public String getId(){
-        return this.id;
     }
 
     public String getUsername(){
@@ -61,5 +53,10 @@ public class User {
     public void setLastname(String lastname){
         this.lastname = lastname;
     }
-
+    public void setUsername(String username){
+        this.username = username;
+    }
+    public void setPassword(String password){
+        this.password = password;
+    }
 }

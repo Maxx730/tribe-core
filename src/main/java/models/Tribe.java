@@ -1,5 +1,6 @@
 package models;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,7 +15,7 @@ import java.util.List;
 public class Tribe {
     @Autowired
     @Id
-    private String id;
+    public ObjectId id;
     private String title;
     private String description;
     private Date created;
@@ -27,10 +28,6 @@ public class Tribe {
 
         this.members = new ArrayList<User>();
         this.events = new ArrayList<Event>();
-    }
-
-    public String getId(){
-        return this.id;
     }
 
     public String getTitle(){

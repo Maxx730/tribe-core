@@ -1,4 +1,5 @@
 package core;
+import io.github.kaiso.relmongo.config.EnableRelationalMongo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
